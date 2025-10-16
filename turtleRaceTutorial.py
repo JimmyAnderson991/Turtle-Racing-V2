@@ -2,23 +2,23 @@ import turtle
 import time
 import random
 
-WIDTH, HEIGHT = 700, 600
-COLORS = ['red', 'green', 'blue', 'orange', 'yellow', 'black', 'purple', 'pink', 'brown', 'cyan']
+WIDTH, HEIGHT = 900, 900
+COLORS = ['red', 'green', 'blue', 'orange', 'yellow', 'black', 'purple', 'pink', 'brown', 'cyan','megenta','violet']
 
 def get_number_of_racers():
 	racers = 0
 	while True:
-		racers = input('Enter the number of racers (2 - 10): ')
+		racers = input('Enter the number of racers (5 - 12): ')
 		if racers.isdigit():
 			racers = int(racers)
 		else:
 			print('Input is not numeric... Try Again!')
 			continue
 
-		if 2 <= racers <= 10:
+		if 5 <= racers <= 12:
 			return racers
 		else:
-			print('Number not in range 2-10. Try Again!')
+			print('Number not in range 5-12. Try Again!')
 
 def race(colors):
 	turtles = create_turtles(colors)
@@ -29,7 +29,7 @@ def race(colors):
 			racer.forward(distance)
 
 			x, y = racer.pos()
-			if y >= HEIGHT // 2 - 10:
+			if y >= HEIGHT // 5 - 12:
 				return colors[turtles.index(racer)]
 
 def create_turtles(colors):
@@ -60,4 +60,5 @@ colors = COLORS[:racers]
 
 winner = race(colors)
 print("The winner is the turtle with color:", winner)
-time.sleep(5)
+
+time.sleep(10)
